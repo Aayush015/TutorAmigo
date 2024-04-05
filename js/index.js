@@ -69,3 +69,91 @@ function getActiveInputs(){
     const activeForm = getActiveSection();
     return activeForm ? activeForm.querySelectorAll("input") : [];
 }
+
+// Function to Validate a field
+function validateField(input) {
+    const fieldName = input.id;
+    const value = input.value.trim();
+
+    if (value === "") {
+        showError(fieldName, "${fieldName} cannot be empty");
+    } else {
+        hideError(fieldName);
+    }
+}
+
+// Function to validate all fields
+function validateNonEmptyField(fieldName, displayName) {
+    const value = document.getElementById(fieldName).value.trim();
+    if (value == "") {
+        showError(fieldName, "${displayName} cannot be empty");
+    } else {
+        hideError(fieldName);
+    }
+}
+
+// Function to validate the email format
+function validateEmailFormat(fieldName, email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showError(fieldName, "Please enter a valid email address");
+    } else {
+        hideError(fieldName);
+    }
+}
+
+// Function to validate the password format
+function validatePassword() {
+    const password = document.getElementById("password").value;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_@$!%*?&])[A-Za-z\d\-_@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+        showError("password", "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character (-_@$!%*?&)");
+    } else {
+        hideError("password");
+    }
+}
+
+// Function to validate the password confirmation
+function validateConfirmPassword() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    
+    if (confirmPassword == "") {
+        showError("confirmPassword", "Confirm Password cannot be empty");
+    } else if (password !== confirmPassword) {
+        showError("confirmPassword", "Passwords do not match");
+    } else {
+        hideError("confirmPassword");
+    }
+}
+
+// Function to validate the phone number including local and international
+function validatePhoneNumber() {
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const phoneNumberRegex = /^(?:\+?\d{2,3}\s?)?(?:\d{2,4}\s?)?\d{6,8}$/;
+
+    if (!phoneNumberRegex.test(phoneNumber)) {
+        showError("phoneNumber", "Invalid phone number format");
+    } else {    
+        hideError("phoneNumber");
+    }
+}
+
+// Function to show error messages
+function showError (field, message) {
+    const errorElement = document.getElementById('${field}Error');
+    errorElement.innerHTML = message;
+    errorElement.style.display = "block";
+
+    const inputElement = document.getElementById(field);
+    inputElement.classList.add("error-input");
+}
+
+// Function to hide error messages
+function hideError(field) {
+    const errorElement = document.getElementById('${field}Error');
+    errorElement.style.display = "none";
+
+    const inputElement = document.getElementById(field);
+    inputElement.classList.remove("error-input");
+}
