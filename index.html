@@ -13,15 +13,17 @@
                 <h2> sign up </h2>
                 <p> Lorem ipsum dolor sit amet. </p>
                 <form id="register">
-                    <div class="form-control">
-                        <label> first name </label>
-                        <input type="text" name="txt_fname" id="firstName">
-                        <div id="firstNameError" class="error-message"> First Name Cannot be Null </div>
-                    </div>
-                    <div class="form-control">
-                        <label> last name </label>
-                        <input type="text" name="txt_lname" id="lastName">
-                        <div id="lastNameError" class="error-message"> Last Name Cannot be Null </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>first name</label>
+                            <input type="text" name="txt-fname" id="firstName" />
+                            <div id="firstNameError" class="error-message"></div>
+                        </div>
+                        <div class="form-control">
+                            <label> last name </label>
+                            <input type="text" name="txt_lname" id="lastName">
+                            <div id="lastNameError" class="error-message"> Last Name Cannot be Null </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="form-control">
@@ -42,9 +44,10 @@
                             <input type="password" name="txt_cpass" id="confirmPassword">
                             <div id="confirmPasswordError" class="error-message"> Please enter a password </div>
                     </div>
+                     
                     <div class="form-group">
                         <div class="form-control">
-                            <label> form number </label>
+                            <label> phone number </label>
                             <input type="tel" name="txt_phone" id="phoneNumber">
                             <div id="phoneNumberError" class="error-message"> Need phone number </div>
                     </div>
@@ -52,8 +55,38 @@
                         <button type="submit"> sign up </button>
                     </div>
                 </form>
+                <div id="successMessage"> Registration Completed </div>
+
             </section>
+            <section class="form sign-in ">
+                <h2> sign in </h2>
+                <p> Lorem ipsum dolor sit amet. </p>
+                <form id="login">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label> email address </label>
+                            <input type="email" name="txt_emailLogin" id="emailLogin" autocomplete="username">
+                            <div id="emailLoginError" class="error-message"> Email Cannot be Null </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>password</label>
+                            <input type="password" name="txt_passLogin" id="passwordLogin" autocomplete="new-password">
+                             <div id="passwordLoginError" class="error-message"> Password Cannot be Null </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit"> sign in </button>
+                    </div>
+                </form>
+            </section>
+            <div class="square"></div>
         </div>
+        <ul class="bottom">
+            <li class="btn active" data-btn="sign-up">sign up</li>
+            <li class="btn" data-btn="sign-in">sign in</li>
+        </ul>
     </div>
     <script
         src="https://kit.fontawesome.com/9e5ba2e3f5.js"
