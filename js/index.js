@@ -362,7 +362,7 @@ function setupFormToggle() {
   // Function to handle login data submission
   function loginData() {
     const formData = new FormData(loginForm);
-    fetch("http://localhost/registration/api/login-user.php", {
+    fetch("http://localhost/registrationform/api/login-user.php", {
       method: "post",
       body: formData,
     })
