@@ -83,7 +83,7 @@ The program incentivizes volunteerism through a **points system**, where student
    git clone <repository-url>
    cd TutorAmigo
     ```
-1. **Set Up the Database
+1. **Set Up the Database**
 - Import the SQL dump file provided in the project to your MySQL database.
 - Update the file `php/includes/connect.php` with your database credentials, including:
   - Host
@@ -91,10 +91,10 @@ The program incentivizes volunteerism through a **points system**, where student
   - Password
   - Database name
 
-3. **Run the Backend
+3. **Run the Backend**
 - Use a local PHP server (e.g., XAMPP, WAMP) to serve the `php/` directory.
 
-3. **Run the Frontend
+3. **Run the Frontend**
 - Open `html/index.html` in a browser to access the application.
 
 ---
